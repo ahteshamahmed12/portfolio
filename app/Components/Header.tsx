@@ -14,10 +14,9 @@ interface NavLink {
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 const navlinks: NavLink[] = [
-  { label: "About",       href: "#about",       sectionId: "about"       },
-  { label: "work",      href: "#work",      sectionId: "work"      },
+  { label: "Projects",   href: "#work",       sectionId: "work"       },
+  { label: "Stack",      href: "#stack",      sectionId: "stack"      },
   { label: "Experience", href: "#experience", sectionId: "experience" },
-  { label: "Services", href: "#services", sectionId: "services" },
   { label: "Contact",    href: "#contact",    sectionId: "contact"    },
 ]
 
@@ -234,7 +233,7 @@ export default function Header() {
                 ))}
                 <li className="pt-1">
                   <Link
-                    href="/cv.pdf"
+                    href="/Ahtesham_ahmed_cv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-4 py-2 rounded-xl text-sm font-semibold text-neutral-900 bg-white hover:bg-neutral-200 transition-colors duration-200 text-center"

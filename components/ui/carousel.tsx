@@ -111,12 +111,15 @@ const Carousel = React.forwardRef<
         return
       }
 
-      onSelect(api)
+      // Let Embla finish mounting before syncing derived button state.
+      const syncState = window.setTimeout(() => onSelect(api), 0)
       api.on("reInit", onSelect)
       api.on("select", onSelect)
 
       return () => {
+        window.clearTimeout(syncState)
         api?.off("select", onSelect)
+        api?.off("reInit", onSelect)
       }
     }, [api, onSelect])
 
