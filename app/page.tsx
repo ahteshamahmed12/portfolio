@@ -1,4 +1,5 @@
 import { Hero } from "@/components/portfolio/Hero";
+import { About } from "@/components/portfolio/About";
 import { TechGrid } from "@/components/portfolio/TechGrid";
 import { FeaturedProjects } from "@/components/portfolio/FeaturedProjects";
 import { Experience } from "@/components/portfolio/Experience";
@@ -10,6 +11,7 @@ export default function Home() {
     <>
       <main className="site-shell flex min-h-screen flex-col overflow-hidden text-white">
         <Hero />
+        <About />
         <TechGrid />
         <FeaturedProjects />
         <Experience />

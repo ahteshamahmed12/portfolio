@@ -50,7 +50,7 @@ export const TECH_STACK: TechCategory[] = [
     id: "backend",
     label: "Backend",
     icon: Server,
-    items: ["Python", "FastAPI", "PostgreSQL", "SQLModel"],
+    items: ["Python", "FastAPI", "PostgreSQL", "SQLModel" , "LangGraph" , "MoongoDB"],
   },
   {
     id: "devops",
@@ -92,6 +92,7 @@ export type Project = {
   accent: "violet" | "cyan" | "amber";
   icon: LucideIcon;
   href?: string;
+  image?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -105,17 +106,21 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "FastAPI", "PostgreSQL", "RBAC", "JWT"],
     accent: "violet",
     icon: KanbanSquare,
+    href: "https://project-managment-system-saas.vercel.app/",
+    image: "/pms.png",
   },
   {
-    id: "agentic-ai",
+    id: "Sorax Industrial Solution",
     index: "02",
-    title: "Agentic AI Benchmarks & Tooling",
+    title: "Industrial Website",
     category: "AI Engineering",
     description:
       "Python packages, custom CLI tools, and LLM verification scripts built with modern agentic tooling such as SpecKit Plus and the OpenAI SDKs.",
-    tags: ["Python", "OpenAI SDK", "SpecKit Plus", "CLI", "LLM Eval"],
+    tags: ["Next.JS", "Typescript" , "Tailwind CSS" , ],
     accent: "cyan",
     icon: Sparkles,
+    href: "https://www.soraxindustrialsolution.com/",
+    image: "/sorax.png",
   },
   {
     id: "ecommerce",

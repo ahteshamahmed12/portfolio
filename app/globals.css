@@ -31,8 +31,32 @@
   --brand-strong: #7c3aed;
   --brand-cyan: #67e8f9;
   --brand-amber: #fbbf24;
+  --surface-soft: #111114;
+  --surface-raised: #17171b;
+  --grid-line: rgba(255, 255, 255, 0.045);
 
   --radius: 0.75rem;
+}
+
+html.light {
+  --background: #f4f4f0;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #e4e4e7;
+  --secondary-foreground: #18181b;
+  --muted: #e4e4e7;
+  --muted-foreground: #52525b;
+  --accent: #e4e4e7;
+  --border: rgba(24, 24, 27, 0.12);
+  --input: #ffffff;
+  --brand: #6d28d9;
+  --brand-strong: #5b21b6;
+  --surface-soft: #ffffff;
+  --surface-raised: #fafafa;
+  --grid-line: rgba(24, 24, 27, 0.08);
 }
 
 /* Expose tokens to Tailwind's utility engine so `bg-card`, `text-muted-foreground`,
@@ -157,8 +181,8 @@ body {
   inset: 0;
   opacity: 0.3;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
@@ -300,6 +324,79 @@ body {
 }
 .hero-badge svg {
   color: var(--brand);
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   ABOUT
+   ════════════════════════════════════════════════════════════════════════ */
+.about-section {
+  background: var(--surface-soft);
+}
+.about-note,
+.about-skill-card {
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--surface-raised);
+  padding: 1.5rem;
+}
+.about-note {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.about-skill-card {
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.about-skill-card:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+}
+.about-skill-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 0.75rem;
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+}
+
+.header-shell-top {
+  background: rgba(20, 20, 22, 0.78);
+  border-color: rgba(255, 255, 255, 0.1);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.header-shell-scrolled {
+  background: rgba(20, 20, 22, 0.92);
+  border-color: rgba(167, 139, 250, 0.22);
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.header-cv {
+  color: #111113;
+  background: #f4f4f5;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+.header-cv:hover {
+  background: #dddde2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.theme-toggle {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--brand);
+  transform: rotate(12deg) scale(1.05);
 }
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -504,6 +601,67 @@ body {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+html.light .site-shell {
+  background:
+    radial-gradient(circle at 12% -5%, rgba(109, 40, 217, 0.08), transparent 35%),
+    radial-gradient(circle at 90% 8%, rgba(8, 145, 178, 0.05), transparent 32%),
+    var(--background);
+}
+html.light .project-card,
+html.light .tech-card,
+html.light .contact-info-card {
+  box-shadow: 0 14px 35px rgba(24, 24, 27, 0.06);
+}
+html.light .section-title,
+html.light .hero-title,
+html.light .hero-copy,
+html.light .hero-section h1,
+html.light .hero-section p,
+html.light .project-card h3,
+html.light .tech-card h3,
+html.light .contact-info-card .text-white,
+html.light .timeline-dot {
+  color: var(--foreground);
+}
+html.light .hero-title em {
+  color: var(--brand);
+}
+html.light .button-ghost {
+  color: var(--foreground);
+  border-color: rgba(24, 24, 27, 0.2);
+}
+html.light .hero-section,
+html.light .work-section {
+  background: var(--background);
+}
+html.light .text-white {
+  color: var(--foreground);
+}
+html.light .text-neutral-200,
+html.light .text-neutral-300 {
+  color: #3f3f46;
+}
+html.light .text-neutral-400,
+html.light .text-neutral-500 {
+  color: #71717a;
+}
+html.light .bg-neutral-950,
+html.light .bg-neutral-900\/80 {
+  background-color: rgba(255, 255, 255, 0.86);
+}
+html.light .header-shell-top,
+html.light .header-shell-scrolled {
+  background: rgba(255, 255, 255, 0.84);
+  border-color: rgba(24, 24, 27, 0.12);
+}
+html.light .header-cv {
+  color: #ffffff;
+  background: #18181b;
+}
+html.light .header-cv:hover {
+  background: #27272a;
 }
 
 @media (max-width: 640px) {

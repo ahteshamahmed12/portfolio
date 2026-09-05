@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
+import { Download } from "lucide-react"
+import { ThemeToggle } from "@/components/portfolio/ThemeToggle"
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 interface NavLink {
@@ -14,9 +16,10 @@ interface NavLink {
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 const navlinks: NavLink[] = [
-  { label: "Projects",   href: "#work",       sectionId: "work"       },
-  { label: "Stack",      href: "#stack",      sectionId: "stack"      },
-  { label: "Experience", href: "#experience", sectionId: "experience" },
+  
+  { label: "About",      href: "#stack",       sectionId: "stack"      },
+  { label: "Projects",   href: "#work",        sectionId: "work"       },
+  { label: "Experience", href: "#experience",  sectionId: "experience" },
   { label: "Contact",    href: "#contact",    sectionId: "contact"    },
 ]
 
@@ -70,28 +73,20 @@ export default function Header() {
   const indicatorId = hoveredId ?? activeId
 
   return (
-    <header
-      className={`
-        fixed top-0 left-0 right-0 z-50
-        transition-all duration-500 ease-in-out
-        ${scrolled
-          ? "py-2 px-4 md:px-8"
-          : "py-3 px-4 md:px-8"
-        }
-      `}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 px-4 py-3 md:px-8">
       {/*
         ── Outer wrapper: becomes a floating pill when scrolled ──────────────
         We keep a full-width strip but shrink the *inner* pill so the
         page content is never clipped by the container.
       */}
-      <div
+      <motion.div
+        layout
+        transition={{ layout: { type: "spring", stiffness: 360, damping: 30 } }}
         className={`
-          mx-auto  transition-all duration-500 ease-in-out
-          bg-neutral-900/80 backdrop-blur-md border border-white/10
+          mx-auto border backdrop-blur-xl
           ${scrolled
-            ? "max-w-3xl rounded-2xl px-5 py-2 shadow-2xl shadow-black/40"
-            : "max-w-7xl rounded-2xl px-6 py-3"
+            ? "header-shell-scrolled max-w-6xl rounded-2xl px-4 py-2 shadow-xl shadow-black/25 md:px-5"
+            : "header-shell-top max-w-7xl rounded-2xl px-5 py-3 md:px-6"
           }
         `}
       >
@@ -102,9 +97,9 @@ export default function Header() {
             <Image
               src="/image-passport.png"
               alt="Ahtesham Ahmed"
-              width={scrolled ? 36 : 44}
-              height={scrolled ? 36 : 44}
-              className="rounded-full object-cover ring-2 ring-white/10 transition-all duration-300"
+              width={44}
+              height={44}
+              className={`rounded-full object-cover ring-2 ring-white/10 transition-all duration-300 ${scrolled ? "scale-90" : "scale-100"}`}
             />
             <span
               className={`
@@ -161,18 +156,15 @@ export default function Header() {
 
           {/* ── Right: Download CV + hamburger ────────────────────────────── */}
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Link
               href="/Ahtesham_ahmed_cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="
-                hidden md:inline-flex items-center gap-1.5
-                text-xs font-semibold text-neutral-900 bg-white
-                px-4 py-3 rounded-full
-                hover:bg-neutral-200 transition-colors duration-200
-              "
+              className={`header-cv hidden md:inline-flex items-center gap-2 rounded-full text-xs font-semibold transition-all duration-300 ${scrolled ? "px-3.5 py-2" : "px-4 py-3"}`}
             >
-              Download CV
+              <Download size={14} />
+              <span>Download CV</span>
             </Link>
 
             {/* Hamburger — mobile only */}
@@ -245,7 +237,7 @@ export default function Header() {
             </motion.nav>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
     </header>
   )
 }
