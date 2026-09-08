@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
     title: "Industrial Website",
     category: "AI Engineering",
     description:
-      "Python packages, custom CLI tools, and LLM verification scripts built with modern agentic tooling such as SpecKit Plus and the OpenAI SDKs.",
+      "At Sorax Industrial Solution, we prioritize boosting business productivity by supplying high-quality industrial equipment. ",
     tags: ["Next.JS", "Typescript" , "Tailwind CSS" , ],
     accent: "cyan",
     icon: Sparkles,
@@ -123,15 +123,17 @@ export const PROJECTS: Project[] = [
     image: "/sorax.png",
   },
   {
-    id: "ecommerce",
+    id: "Physical AI Book",
     index: "03",
-    title: "Modern E-Commerce Interfaces",
-    category: "Frontend Engineering",
+    title: "Physical AI Book",
+    category: "Agentic AI",
     description:
-      "High-performance product listing platforms with advanced search metadata, full-text indexing, and custom, composable layout components.",
-    tags: ["Next.js", "TypeScript", "Search Metadata", "Tailwind CSS"],
+      "An exploration of embodied intelligence. Learn to build and control intelligent robots with ROS2, Isaac Sim, and cutting-edge Vision-Language Models.",
+    tags: ["Docasurus", "Python", "RAG Chatbot", "Fastapi" , "OpenAIAgentSDK"],
     accent: "amber",
     icon: Boxes,
+    href: "https://hackathon-physical-ai-textbook.vercel.app/",
+    image: "/aibook.png",
   },
 ];
 
