@@ -56,7 +56,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={social.name}
-              className="opacity-60 transition-all duration-300 hover:scale-110 hover:opacity-100"
+              className="social-link flex h-11 w-11 items-center justify-center rounded-xl opacity-70 transition-all duration-300 hover:scale-110 hover:opacity-100"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

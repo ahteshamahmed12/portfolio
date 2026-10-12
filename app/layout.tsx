@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Header";
+import { ChatWidget } from "@/components/chat/ChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://ahteshamahmed.dev"; // ← update to your production domain
+const SITE_URL = "https://ahteshamahmed"; // ← update to your production domain
 const NAME = "Ahtesham Ahmed";
 const TITLE = "Ahtesham Ahmed | Full-Stack Web Developer & Agentic AI Engineer";
 const DESCRIPTION =
@@ -90,6 +91,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <Header />
         {children}
+        <ChatWidget />
       </body>
     </html>
   );

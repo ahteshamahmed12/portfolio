@@ -26,7 +26,10 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 lg:grid-cols-[1.15fr_.85fr]">
         {/* ─── Copy ─── */}
         <motion.div variants={staggerContainer} initial="hidden" animate="show">
-          <motion.p variants={fadeUp} className="eyebrow">
+          <motion.p
+            variants={fadeUp}
+            className="flex items-center gap-2 text-xs font-bold tracking-[0.1em] text-[var(--brand)] sm:text-sm"
+          >
             <span className="status-dot" aria-hidden />
             Available for select projects
           </motion.p>
@@ -39,10 +42,10 @@ export function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 text-lg font-medium text-neutral-200 sm:text-xl"
+            className="mt-6 text-lg font-medium text-neutral-300 sm:text-xl"
           >
             {PROFILE.title}
-            <span className="mt-1 block text-sm font-normal uppercase tracking-[0.18em] text-neutral-500">
+            <span className="mt-1 block text-sm font-normal text-neutral-500">
               Based in {PROFILE.location}
             </span>
           </motion.p>
@@ -58,6 +61,12 @@ export function Hero() {
             <Link href="#contact" className="button button-ghost">
               Contact Me
             </Link>
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-chat"))}
+              className="button button-ghost"
+            >
+              Chat with my AI
+            </button>
           </motion.div>
 
           <motion.div variants={fadeUp} className="hero-meta">

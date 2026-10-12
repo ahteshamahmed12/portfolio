@@ -23,7 +23,7 @@ export function Experience() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="relative mt-14 space-y-10 border-l border-white/10 pl-8"
+          className="relative mt-14 space-y-10 border-l border-white/10 pl-10"
         >
           {MILESTONES.map((item) => {
             const Icon = item.icon;
@@ -33,7 +33,7 @@ export function Experience() {
                 variants={slideInLeft}
                 className="group relative"
               >
-                <span className="timeline-dot absolute -left-[2.6rem] top-0 flex h-8 w-8 items-center justify-center rounded-full">
+                <span className="timeline-dot absolute -left-[2rem] top-0 flex h-8 w-8 items-center justify-center rounded-full">
                   <Icon size={15} />
                 </span>
                 <p className="mb-1 text-xs uppercase tracking-[0.16em] text-[var(--brand)]">

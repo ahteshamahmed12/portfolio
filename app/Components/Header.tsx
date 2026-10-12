@@ -16,12 +16,13 @@ interface NavLink {
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 const navlinks: NavLink[] = [
-  
-  { label: "About",      href: "#stack",       sectionId: "stack"      },
+  { label: "About",      href: "#about",      sectionId: "about"      },
   { label: "Projects",   href: "#work",        sectionId: "work"       },
   { label: "Experience", href: "#experience",  sectionId: "experience" },
   { label: "Contact",    href: "#contact",    sectionId: "contact"    },
 ]
+
+const externalLinks: { label: string; href: string }[] = []
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function Header() {
@@ -140,9 +141,10 @@ export default function Header() {
                       className={`
                         relative z-10 block px-4 py-1.5 text-sm font-medium rounded-full
                         transition-colors duration-200 select-none
-                        ${isActive
-                          ? "text-white"
-                          : "text-neutral-400 hover:text-white"
+                        ${
+                          isActive || sectionId === "contact"
+                            ? "text-primary-foreground bg-brand hover:bg-brand/90"
+                            : "text-neutral-400 hover:text-white"
                         }
                       `}
                     >
@@ -151,6 +153,16 @@ export default function Header() {
                   </li>
                 )
               })}
+              {externalLinks.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="relative z-10 block px-4 py-1.5 text-sm font-medium rounded-full text-neutral-400 hover:text-white transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
@@ -218,6 +230,17 @@ export default function Header() {
                           : "text-neutral-400 hover:bg-white/5 hover:text-white"
                         }
                       `}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+                {externalLinks.map(({ label, href }) => (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={() => setMenuOpen(false)}
+                      className="block px-4 py-2 rounded-xl text-sm font-medium text-neutral-400 hover:bg-white/5 hover:text-white transition-colors duration-200"
                     >
                       {label}
                     </Link>
